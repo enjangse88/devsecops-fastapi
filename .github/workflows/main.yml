@@ -1,0 +1,10 @@
+name: DevSecOps CI/CD Pipeline
+
+on:
+  push:
+    branch: main
+
+
+jobs:
+  build:
+    runs-on: ubuntu
