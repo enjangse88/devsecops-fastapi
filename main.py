@@ -4,6 +4,7 @@ app = FastAPI()
 
 SECRET_KEY = "Abcndkdm34"
 
+
 @app.get("/")
 def read_root():
     return {"message": "Hello, welcome to FastAPI DevSecOps CI/CD Project"}
