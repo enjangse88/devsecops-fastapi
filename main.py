@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+DB_PASSWORD = 'AbC8ndl'
 
 @app.get("/")
 def read_root():
