@@ -22,7 +22,8 @@ jobs:
     - name: code quality analysis
       uses: github/codeql-action/init@v2
       with:
-        languages: python
+        languages: ['python']
+        codeql-version: 'latest'
 
     - name: autobuild codeql 
       uses: github/codeql-action/autobuild@v2
