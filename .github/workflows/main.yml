@@ -23,7 +23,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: 'python'
-        codeql-version: 'latest'
+        
 
     - name: autobuild codeql 
       uses: github/codeql-action/autobuild@v2
