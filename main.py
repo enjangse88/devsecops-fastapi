@@ -4,6 +4,7 @@ app = FastAPI()
 
 DB_PASSWORD = 'AbC8ndl'
 
+
 @app.get("/")
 def read_root():
     return {"message": "Hello, welcome to FastAPI DevSecOps CI/CD Project"}
