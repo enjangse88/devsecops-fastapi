@@ -35,12 +35,12 @@ jobs:
     - name: perform codeql analysis
       uses: github/codeql-action/analyze@v2
 
-    - name: secret keys scanning
-      run: |
-        pip install detect-secrets
-        detect-secrets scan --exclude-files .git
-    #- name: secret keys scannning
-    #  uses: zricethezav/gitleaks-action@master
+    #- name: secret keys scanning
+    #  run: |
+    #    pip install detect-secrets
+    #    detect-secrets scan --exclude-files .git
+    - name: secret keys scannning
+      uses: zricethezav/gitleaks-action@master
     
     #- name: build codeql database
     #  run: codeql database create --language=python --source-root .
