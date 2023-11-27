@@ -6,16 +6,29 @@ on:
 
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-  
 
-    steps:
+  security-check:
+    runs-on: ubuntu-latest
+
+    steps: 
     - name: checkout repository
       uses: actions/checkout@v2
 
-    - name: docker build image
+    - name: code linting
       run: |
-        docker login -u enjangse -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-        docker build -t enjangse/devsecopsfastapi:latest .
-        docker push enjangse/devsecopsfastapi:latest
+         pip install flake8
+         flake8 
+
+  #build:
+    #runs-on: ubuntu-latest
+  
+
+    #steps:
+    #- name: checkout repository
+    #  uses: actions/checkout@v2
+
+    #- name: docker build image
+    #  run: |
+    #    docker login -u enjangse -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    #    docker build -t enjangse/devsecopsfastapi:latest .
+    #    docker push enjangse/devsecopsfastapi:latest
