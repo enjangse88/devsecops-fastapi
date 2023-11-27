@@ -36,10 +36,10 @@ jobs:
       uses: github/codeql-action/analyze@v2
     
     - name: install whisper
-      run: pip install whisper
+      run: pip install whispers
 
     - name: scan code whisper
-      run: whisper .
+      run: whispers .
     #- name: secret keys scanning
     #  run: |
     #    pip install detect-secrets
