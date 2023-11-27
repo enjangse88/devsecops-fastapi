@@ -34,13 +34,18 @@ jobs:
 
     - name: perform codeql analysis
       uses: github/codeql-action/analyze@v2
+    
+    - name: install whisper
+      run: pip install whisper
 
+    - name: scan code whisper
+      run: whisper .
     #- name: secret keys scanning
     #  run: |
     #    pip install detect-secrets
     #    detect-secrets scan --exclude-files .git
-    - name: secret keys scannning
-      uses: gitleaks/gitleaks-action@v2
+    #- name: secret keys scannning
+    #  uses: gitleaks/gitleaks-action@v2
     
     #- name: build codeql database
     #  run: codeql database create --language=python --source-root .

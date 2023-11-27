@@ -2,8 +2,9 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-SECRET_KEY = "Abcndkdm34"
-AWS_SECRET = "asc830knfl"
+secret_key = "Abcndkdm34"
+aws_secret = "asc830knfl"
+db_password = "M0nit0rDB1"
 
 
 @app.get("/")
