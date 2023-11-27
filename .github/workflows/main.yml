@@ -16,6 +16,6 @@ jobs:
 
     - name: docker build image
       run: |
-        docker login -u enjangse -p ${{ secrets.DOCKER_PASSWORD }}
+        docker login -u enjangse -p ${{ secrets.DOCKER_HUB_PASSWORD }}
         docker build -t enjangse/devsecopsfastapi:latest .
         docker push enjangse/devsecopsfastapi:latest
