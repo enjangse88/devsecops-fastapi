@@ -7,4 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
+  
+
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@v2
+
+    - name: docker build image
+      run: |
+        docker build -t enjangse/fastapi:latest .
+        docker images
