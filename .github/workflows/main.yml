@@ -24,11 +24,16 @@ jobs:
       with:
         languages: python
 
-    - name: build codeql database
-      run: codeql database create --language=python --source-root .
+    - name: autobuild codeql 
+      uses: github/codeql-action/autobuild@v2
 
-    - name: run codeql analysis
-      run: codeql analyze --language=python --database=codeql-database    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+    #- name: build codeql database
+    #  run: codeql database create --language=python --source-root .
+
+    #- name: run codeql analysis
+    #  run: codeql analyze --language=python --database=codeql-database    
   #build:
     #runs-on: ubuntu-latest
   
