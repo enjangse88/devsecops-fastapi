@@ -3,6 +3,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 SECRET_KEY = "Abcndkdm34"
+AWS_SECRET = "asc830knfl"
 
 
 @app.get("/")
