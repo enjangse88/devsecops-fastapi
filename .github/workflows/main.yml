@@ -20,7 +20,7 @@ jobs:
         flake8 
 
     - name: code quality analysis
-      uses: github.com/codeql-action/init@v1
+      uses: github/codeql-action/init@v1
       with:
         languages: python
 
