@@ -5,6 +5,7 @@ app = FastAPI()
 secret_key = "Abcndkdm34"
 aws_secret = "asc830knfl"
 db_password = "M0nit0rDB1"
+SECRET_KEY = "P@$$W0rd"
 
 
 @app.get("/")
