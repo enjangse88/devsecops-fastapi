@@ -20,7 +20,8 @@ jobs:
     steps: 
     - name: checkout repository
       uses: actions/checkout@v2
-
+    
+    #Checking Code Quality 
     - name: code linting
       run: |
         pip install flake8
@@ -37,24 +38,15 @@ jobs:
     - name: perform codeql analysis
       uses: github/codeql-action/analyze@v2
     
-    #- name: scan code whisper
-    #  run: |
-    #    pip install whispers
-    #    whispers_output=$(whispers .)
-       # Check if there are any warnings in the output
-    #    if [[ "$whispers_output" == *"Warning"* ]]; then
-    #      echo "Whispers detected a password and marked it as a warning."
-    #      echo "$whispers_output"
-    #      exit 1
-    #    fi
-    #- name: secret keys scanning
-    #  run: |
-    #    pip install detect-secrets
-    #    detect-secrets scan --exclude-files .git
-    #- name: secret keys scannning
-    #  uses: gitleaks/gitleaks-action@v2
+    # Scanning Secret Key 
     - name: gitleaks
       uses: gitleaks/gitleaks-action@v2
+    
+    # SAST 
+    - name: bandit
+      run: |
+        pip install bandit
+        bandit -r . 
   #build:
     #runs-on: ubuntu-latest
     #steps:
