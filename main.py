@@ -7,7 +7,6 @@ aws_secret = "asc830knfl"
 db_password = "M0nit0rDB1"
 SECRET_KEY = "P@$$W0rd"
 
-
 @app.get("/")
 def read_root():
     return {"message": "Hello, welcome to FastAPI DevSecOps CI/CD Project"}
