@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      
+
     steps: 
     - name: checkout repository
       uses: actions/checkout@v2
@@ -31,7 +31,6 @@ jobs:
       with:
         languages: 'python'
         
-
     - name: autobuild codeql 
       uses: github/codeql-action/autobuild@v2
 
@@ -42,27 +41,26 @@ jobs:
       run: pip install whispers
 
     - name: scan code whisper
-      run: whispers .
+      run: |
+      whispers .
+
+      # Check if there are any warnings in the output
+      if [[ "$whispers_output" == *"Warning"* ]]; then
+          echo "Error: Whispers detected a password and marked it as a warning."
+          echo "$whispers_output"
+          exit 1
+      fi
     #- name: secret keys scanning
     #  run: |
     #    pip install detect-secrets
     #    detect-secrets scan --exclude-files .git
     #- name: secret keys scannning
     #  uses: gitleaks/gitleaks-action@v2
-    
-    #- name: build codeql database
-    #  run: codeql database create --language=python --source-root .
 
-    #- name: run codeql analysis
-    #  run: codeql analyze --language=python --database=codeql-database    
   #build:
     #runs-on: ubuntu-latest
-  
-
     #steps:
-    #- name: checkout repository
-    #  uses: actions/checkout@v2
-
+    
     #- name: docker build image
     #  run: |
     #    docker login -u enjangse -p ${{ secrets.DOCKER_HUB_PASSWORD }}
