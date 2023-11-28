@@ -42,7 +42,7 @@ jobs:
 
     - name: scan code whisper
       run: |
-        whispers .
+        whispers_output=$(whispers .)
 
       # Check if there are any warnings in the output
         if [[ "$whispers_output" == *"Warning"* ]]; then
