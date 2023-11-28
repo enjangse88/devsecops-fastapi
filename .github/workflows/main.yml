@@ -42,14 +42,14 @@ jobs:
 
     - name: scan code whisper
       run: |
-      whispers .
+        whispers .
 
       # Check if there are any warnings in the output
-      if [[ "$whispers_output" == *"Warning"* ]]; then
+        if [[ "$whispers_output" == *"Warning"* ]]; then
           echo "Error: Whispers detected a password and marked it as a warning."
           echo "$whispers_output"
           exit 1
-      fi
+        fi
     #- name: secret keys scanning
     #  run: |
     #    pip install detect-secrets
