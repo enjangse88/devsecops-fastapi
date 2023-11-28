@@ -46,8 +46,8 @@ jobs:
 
       # Check if there are any warnings in the output
         if [[ "$whispers_output" == *"Warning"* ]]; then
-          echo "Error: Whispers detected a password and marked it as a warning."
-          echo "$whispers_output"
+          echo "Whispers detected a password and marked it as a warning."
+          echo "$whispers_output" >&2
           exit 1
         fi
     #- name: secret keys scanning
