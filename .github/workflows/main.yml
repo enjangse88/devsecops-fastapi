@@ -37,13 +37,10 @@ jobs:
     - name: perform codeql analysis
       uses: github/codeql-action/analyze@v2
     
-    - name: install whisper
-      run: pip install whispers
-
     - name: scan code whisper
       run: |
+        pip install whispers
         whispers_output=$(whispers .)
-
       # Check if there are any warnings in the output
         if [[ "$whispers_output" == *"Warning"* ]]; then
           echo "Whispers detected a password and marked it as a warning."
