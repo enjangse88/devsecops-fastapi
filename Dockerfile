@@ -1,5 +1,5 @@
 #FROM python:3.8-slim
-FROM python:3.13-rc-alpine3.17
+FROM python:3.13-rc-bookworm
 WORKDIR /app
 COPY main.py /app
 COPY requirements.txt /app
