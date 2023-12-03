@@ -49,6 +49,7 @@ jobs:
         bandit -r . 
 
   docker-build:
+    needs: [security-check]
     runs-on: ubuntu-latest
     permissions:
       contents: read
